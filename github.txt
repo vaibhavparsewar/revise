@@ -1,0 +1,162 @@
+github=>code hosting service
+git=>version control system
+
+Distributed vcs when client pulls he gets all history so backup is with all the client
+
+staging area => files which we want to commit next
+
+
+bash commands
+pwd = present working directory
+ls							//list all files
+cd = change directory					cd /c or cd desktop
+
+
+already git file asel tr don't do git init
+git status ni check kr t already aahe ka .git file
+
+Commands 
+git config --global user.name "vaibhav" 					//to check git config user.name
+git config --global user.email "vaibhav.parsewar2000@gmial.com"
+git config --list                                                   //shows all configured data
+git status
+git init   									//\apke folder ko git repository bana diya he
+git add --a or git add .									//sare files ko staging area me daldo  before this status will be untracked but now after this status will be "changes to be comitted"
+
+git commit -m "initial commit"
+
+git diff 									// working directory and staging che file compare karto
+git diff --stage 								// staging area and comitted files compare karto
+rm -rf .git 									//removes git file from folder
+git clone urlhere namehereyouwanttogive						//to clone repository
+
+
+untracked-> unmodified(apan git add --a kela direct staged nahi hot)-> modified(files modified kela ata apan git add --a karal) -> staged
+
+
+GIT IGNORE
+1)touch .gitignore			//creates .gitignore file
+2)ata .gitignore open kr ani j file or folders tula imp nahi jasa .log files tyach naav lihi kivva multiple .log astil tr *.log lihi .gitignore madhe (folder asel tr foldername/ lihi) ani save kr
+3)ata git status kela tr ji unimp file hoti t dakhvat nahi
+
+
+SKIP STAGING AREA
+git commit -a -m "Direct commit" 						//TRACked files(already in stage) ko commit karega
+
+
+DELETING AND RENAMING THE FILE
+git rm filename.txt								// This will remove and automatically stage(means apan j git add . karto t automatic hota ) the file ani just commit kr
+
+git mv filename.txt new_name.txt 						// This will rename and automatically stage(means apan j git add . karto t automatic hota ) the file ani just commit kr
+
+git rm --cashed filename.filetype 						// .gitignore madhe j file ch nav aahe tyla tula manually untrack karav ch lagal
+
+
+
+
+
+git log 									//to see history's of the commit
+git log -p  -1									// get's you history with what changes been made -1 means only one persons commit disal
+git log --stat									//short summary of the commit history
+git log --pretty= one line							//preetified in one line whole git commits
+git log --preety= short
+git log --since= 2.days
+git log --preety=format:"%h --%an --%ae"					//an means author name
+
+
+JR TULA LOKANNI COMMIT KELELA MADHE CHANGES KARAYCH ASAL TR kivva swatach commit change karaych asel tr	
+git commit --amend                                            			// mg ek editor yeil tyat i type kar mhnje tula lihita yeil lihila ki esc dab mag :wq lihi ani enter
+
+
+
+
+UNSTAGE 
+git restore --stage filename.txt
+
+
+
+
+UnMODIFY
+git checkout -- filename.filetype            					//ctrl+z sarkh pn khup files astil tr    git checkout -f
+
+
+git restore filename.filetype								//discard all changes
+
+
+INSTED OF BRANCH MASTER USE BRANCH MAIN
+git branch -M *- main  
+git push origin main
+
+
+
+REMOTE WORKING
+1) create repository 
+2) create shh link
+git remote add origin url(github repo banavla ki asta tithch)  `		//get this when creating repo   and origin means url ka naam he
+git remote -v 									//to know konti repo aahe ka
+							//you will not have permission so go to setting -> ssh & gpg keys -> new ssh -> search on google ssh key github ani tyatle command run kr  1)$ ssh-keygen -t ed25519 -C "vaibhav.parsewar2000@gmail.com"
+							2)$ eval $(ssh-agent -s)  3)$ ssh-add ~/.ssh/id_rsa 4)$ tail ~/.ssh/id_ed25519.pub        this way you will get ssh key now copy that i.e(ssh-ed25519AAAAC3NzaC1lZDI1NTE5AAAAIIWOQO1Kn0xoek8tJ5DZ5brHQEN4VE8aVs4EbnEHNRg1 vaibhav.parsewar2000@gmail.com
+							) and paste into github website
+
+git push -u origin master
+
+
+ata j kahi edit karshil tyala add . kr mg commit kr mg push kr
+
+
+
+
+ALIAS
+git config --global alias.st status					//mhane status la apan st lihu shakto ata
+
+
+
+
+
+BRANCHING
+git checkout -b develop1					//now you are into new branch develop
+git branch -d develop						//deleting branach   use -D if you dont want errors
+git push -d origin bugfix					//deleting branch bugfix on remote(github)
+git branch 							//lists total no.of branches            git branch -v to see last commit of each branch
+git checkout master 						//switched to master branch
+git merge develop 						// merging develop branch into master branch nantar add kr commit kr
+git branch --merge						//already merged branches
+git branch --no-merge
+
+
+
+MERGE CONFLICT
+check if you are working with remote repo 		git remote -v
+
+
+
+git push origin bugfix:mybugfix 				//pushing branch bugfix on github(remote) by named mybugfix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
